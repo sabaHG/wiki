@@ -1,9 +1,9 @@
 body{
-    background: #FFE4C4;
+    background: linear-gradient(to bottom left , #F5F5DC,#8B4513 );
 }
 aside{
     float: left;
-    background: wheat;
+    background: black;
     width: 20%;
     padding: 2.5%;
     height: 100vh;
@@ -13,6 +13,7 @@ aside{
 aside img {
     width: 80px;
     float: left;
+py
 }
 aside .logo{
     font-size:30px;
@@ -56,4 +57,29 @@ main .features p {max-width: 400px; margin: 20px auto}
     width: 400px;
     margin: 20px 34%;
     text-align: left;
+}
+
+@font-face {
+    font-family: 'Midgard';
+    src: url('https://creativemarket.com/deadboltdesign/2072877-Midgard') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+aside .logo,
+p,
+h2 {
+    font-family: 'Viking Hell', sans-serif;
+    border-radius: 2px solid white;
+    transform: translateX: 15px
+}
+
+aside .logo {
+    color: red;
+    border-radius: 2px solid white;
+    transform: translateX(15px)
+}
+h3 {
+    color: white
 }
