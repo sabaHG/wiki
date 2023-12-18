@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+    <link rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/Без названия.jpeg'%}" alt="logo">
+        <span class="logo">Vinland Saga</span>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
+            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
+        </ul>
+    </aside>
+    <main>
+        <div class="features">
+            <h1>Gallery</h1>
+            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolore in reiciendis rerum similique unde veniam! Dicta distinctio dolor doloribus, ea est, fuga itaque maiores modi, molestiae qui sapiente voluptatibus.</p>
+             <button class="btn btn-danger">slider</button>
+        </div>
+        {%  for el in gallery %}
+        <img src="{{el.image.url}}" >
+            {% endfor %}
+
+    </main>
+
+</body>
+</html>

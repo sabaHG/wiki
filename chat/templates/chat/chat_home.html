@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/Без названия.jpeg'%}" alt="logo">
+        <span class="logo">Vinland Saga</span>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
+            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
+        </ul>
+    </aside>
+</body>
+</html>
