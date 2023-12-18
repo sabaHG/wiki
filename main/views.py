@@ -7,4 +7,7 @@ def index(reqest):
 def gallery(reqest):
     return render(reqest, 'main/gallery.html')
 
+def character(reqest):
+    return render(reqest, 'character/character.html')
+
 

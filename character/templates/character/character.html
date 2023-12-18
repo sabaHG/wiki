@@ -18,6 +18,7 @@
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
             <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> add character</button></li></a>
         </ul>
     </aside>
     <main>
@@ -26,6 +27,7 @@
             {%  for el in character %}
                     <h3>{{el.title}}</h3>
                     <p>{{el.story}}</p>
+                    <p4>{{el.age}}</p4>
             <img src="{{el.image.url}}" >
             
 
