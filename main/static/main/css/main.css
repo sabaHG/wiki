@@ -59,12 +59,7 @@ main .features p {max-width: 400px; margin: 20px auto}
     text-align: left;
 }
 
-@font-face {
-    font-family: 'Midgard';
-    src: url('https://creativemarket.com/deadboltdesign/2072877-Midgard') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 
 aside .logo,

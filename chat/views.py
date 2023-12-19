@@ -1,16 +1,14 @@
 from django.shortcuts import render
-
-
-def chat_home(reqest):
-    return render(reqest, 'chat/chat_home.html')
-
 from django.shortcuts import render, redirect
 from .models import Message
 from .forms import MessageForm
 
+def chat_home(reqest):
+    return render(reqest, 'chat/chat_home.html')
 def create_message(request):
     if request.method == 'POST':
         form = MessageForm(request.POST, user=request.user)
+
         if form.is_valid():
             form.save()
             return redirect('success_page')

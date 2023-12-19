@@ -29,6 +29,12 @@
     margin-bottom: 10px;
     }
 
+    img.min {
+    border-radius: 1px solid;
+    background-color: black;
+    font-size: 5px;
+    }
+
 </style>
     <aside>
         <img src="https://sun9-77.userapi.com/impg/PEh5iOf1H8k0e9Co06aQmlRzaNp88EAwPhYZvA/SPiuOm8Z6SY.jpg?size=1280x918&quality=96&sign=15cc9e82ef6e529b8b2cc32c8c42837e&c_uniq_tag=A23SjHkSK_4JhxK1llBnJsyhsZrQ6luShW31nhtGXeU&type=album" alt="logo">
@@ -36,7 +42,7 @@
         <hr>
         <h3>Navigation</h3>
         <ul>
-            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>main</li>
+            <a href="{% url 'home' %}"><li><img class="min" src="{% static 'post_images/home(1).png' %}"> <i class="fa-solid fa-house"></i>main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
             <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
