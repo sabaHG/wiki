@@ -5,6 +5,9 @@
     <title>Чат</title>
 </head>
 <body>
+<style>
+    background-color:
+</style>
 {% for message in messages %}
 <div style="float: {% if message.author.id == user.id %}right{% else %}left{% endif %}">
     <p>{{ message.author.username }}</p>
@@ -25,3 +28,4 @@
 {% if user.is_active %}<p>{{user.username}}</p>{% endif %}
 </body>
 </html>
+

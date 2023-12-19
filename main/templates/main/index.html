@@ -11,7 +11,7 @@
 <body>
 <style>
     img {
-       width: 500px;
+       width: 80px;
        height: 80px;
        border-radius: 80px;
        border: 2px solid white;
@@ -19,15 +19,30 @@
 
 
     span.logo {
-        border: 2px solid white;
-        transform: translateX(15px)
+
+        transform: translateX(15px);
+        color: #F5F5DC
        }
 
     aside hr {
-    border: 1px solid white;
+    border: 2px solid #F5F5DC;
     margin-top: 10px;
     margin-bottom: 10px;
     }
+
+    img.min {
+    border-radius: 1px solid;
+    background-color: black;
+    font-size: 5px;
+    }
+
+    hr.line {
+        width: 50%;
+        border-width: 2px;
+        border-color: white;
+        margin-left: 25%;
+    }
+
 
 </style>
     <aside>
@@ -36,19 +51,25 @@
         <hr>
         <h3>Navigation</h3>
         <ul>
-            <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i>main</li>
-            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
-            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
-            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li></a>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
+            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Chat</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Characters</li>
         </ul>
     </aside>
-        <h1>{{user.email}}</h1>
+
     <main>
         <div class="features">
-            <h1>{{ title }}</h1>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dolore in reiciendis rerum similique unde veniam! Dicta distinctio dolor doloribus, ea est, fuga itaque maiores modi, molestiae qui sapiente voluptatibus.</p>
-             <a href="{% url 'register' %}" class="btn btn-warning">Registration</a>
+            <h1>Welcome to Vinland!</h1>
+            <hr class="line">
+            <p> Greetings, traveler, to the wiki dedicated to one of the greatest sagas – Vinland Saga. Here, you'll discover endless Viking fields, snow-covered Scandinavian forests, and gripping battles that will leave a mark on history.
 
+Vinland Saga is not just a story; it's an epic full of thrilling adventures and the destinies of characters. On this wiki, you can delve into the heroes, historical facts, and Viking culture that compose the essence of this captivating world.
+
+Let's open the doors to the past together, where the secrets of great warriors are hidden, and where every page of their fate is filled with courage and determination. Join the community of Vinland Saga fans – a place where passion for history meets the magic of Viking adventures.
+
+Welcome to Vinland, where every fan becomes part of the legend!</p>
+             <button class="btn btn-warning">More</button>
         </div>
     </main>
 

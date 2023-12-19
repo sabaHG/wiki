@@ -11,36 +11,101 @@
 <body>
     <aside>
         <style>
-            img {
-               witdh: 80px;
-               height: 80px;
-               border-radius: 80px;
+            img.anime {
+               witdh: 150px;
+               height: 150px;
+               border-radius: 50px;
                border: 2px solid white;
+               transform: translate(-130px, -405px)
             }
+
+            aside hr {
+                border: 2px solid #F5F5DC;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            img.icon {
+                width: 80px;
+                height: 80px;
+                border-radius: 80px;
+                border: 2px solid white;
+                background-size: cover;
+                transfrom: translateX(50px)
+            }
+
+            button.btn.btn-info {
+                transform: translateX(-10px)
+            }
+
+@import url('https://fonts.cdnfonts.com/css/viking-hell');
+
+            h3.pers {
+                font-size: 50px;
+                transform: translate(250px,150px);
+                font-family: "Viking Hell", sans-relief;
+                color: #F5F5DC;
+            }
+            h1.ass {
+                transform: translateY(-50px)
+            }
+
+            hr.line {
+                width: 50%;
+                border-width: 2px;
+                border-color: white;
+                margin-left: 25%;
+                transform: translate(250px,-20px)
+            }
+
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300&display=swap');
+
+            p {
+                font-family: 'Saira', sans-serif;
+            }
+
+            p4.age {
+                font-size: 20px;
+                color: white;
+                transform: translateX(500px);
+
+            }
+
+            p.numbers {
+                font-family: "Viking Hell", sans-relief;
+                color: #F5F5DC
+            }
+
+            button.btn.btn-danger {
+                transform-translateX(-400px)
+            }
+
+
+
             </style>
         <img class="icon" src="https://sun9-77.userapi.com/impg/PEh5iOf1H8k0e9Co06aQmlRzaNp88EAwPhYZvA/SPiuOm8Z6SY.jpg?size=1280x918&quality=96&sign=15cc9e82ef6e529b8b2cc32c8c42837e&c_uniq_tag=A23SjHkSK_4JhxK1llBnJsyhsZrQ6luShW31nhtGXeU&type=album" alt="logo">
         <span class="logo">Vinland Saga</span>
+        <hr>
         <h3>Navigation</h3>
         <ul>
-            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>main</li>
-            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
-            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
-            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
-            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> add character</button></li></a>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
+            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> •  Chat</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li>
+            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Add character</button></li></a>
         </ul>
     </aside>
     <main>
         <div class="features">
-            <h1>Character</h1>
-            {% for el in character %}
-                    <h3>{{el.title}}</h3>
-                    <p>{{el.story}}</p>
-                    <p4>{{el.age}}</p4>
-                    <a href="{% url 'delete_pers' el.id %}">delete</a>
+            <h1 class="ass">Characters</h1>
+            <hr class="line">
+            {%  for el in character %}
+                    <h3 class="pers">{{el.title}}</h3>
+                    <p clas="plot">{{el.story}}</p>
+                    <p4 class="age"><p class="numbers">Age:</p>{{el.age}}</p4>
+                    <a href="{% url 'delete_pers' el.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+            <img class="anime" src="{{el.image.url}}" >
 
-            <img src="{{el.image.url}}" >
-
-            
 
             {% endfor %}
         </div>
