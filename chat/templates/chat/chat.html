@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Чат</title>
+</head>
+<body>
+{% for message in messages %}
+<div style="float: {% if message.author.id == user.id %}right{% else %}left{% endif %}">
+    <p>{{ message.author.username }}</p>
+    <p>{{ message.text }}</p>
+</div>
+{% endfor %}
+<form method="post" action="{% url 'chat' %}">
+    {% csrf_token %}
+
+    <!-- You can add any additional styling as needed -->
+    <div style="margin-bottom: 10px;">
+      <label for="id_text">Message:</label>
+      <textarea id="id_text" name="text" rows="4" cols="50" required></textarea>
+    </div>
+
+    <input type="submit" value="Send Message">
+  </form>
+{% if user.is_active %}<p>qwerty{{user.username}}</p>{% endif %}
+</body>
+</html>

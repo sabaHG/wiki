@@ -1,4 +1,4 @@
-body{
+body {
     background: linear-gradient(to bottom left , #F5F5DC,#8B4513 );
 }
 aside{
@@ -71,15 +71,21 @@ aside .logo,
 p,
 h2 {
     font-family: 'Viking Hell', sans-serif;
-    border-radius: 2px solid white;
+    border-radius: 1px solid white;
     transform: translateX: 15px
 }
 
 aside .logo {
     color: red;
-    border-radius: 2px solid white;
+    border: 1px solid white;
     transform: translateX(15px)
 }
 h3 {
     color: white
+}
+
+aside hr {
+    border: 1px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
