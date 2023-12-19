@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Pers
 from .forms import PersForm
+from django.http import HttpResponseRedirect, HttpResponseBadRequest
 
-def character(reqest):
+def character(request):
     character = Pers.objects.all()
-    return render(reqest, 'character/character.html',{'character':character})
+    print(character)
+    return render(request, 'character/character.html',{"character":character})
 
 def create(request):
     error = ''
@@ -29,3 +31,12 @@ def create(request):
     }
 
     return render(request, 'character/create.html', data)
+
+
+def deletePers(request, id):
+    try:
+        character = Pers.objects.get(id=id)
+        character.delete()
+        return redirect('character')
+    except Exception as error:
+        return HttpResponseBadRequest(error)

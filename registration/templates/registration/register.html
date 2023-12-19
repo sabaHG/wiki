@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Site{% endblock %}</title>
+    <!-- Здесь вы можете добавить подключения к вашим статическим файлам, например, CSS-стили, JavaScript-скрипты и т. д. -->
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <!-- Добавьте другие пункты меню, если необходимо -->
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <h2>Register</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register</button>
+    </form>    </main>
+
+    <footer>
+        <!-- Здесь вы можете добавить информацию о футере, например, ссылки на социальные сети, копирайт и т. д. -->
+    </footer>
+
+</body>
+</html>

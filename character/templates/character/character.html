@@ -32,11 +32,14 @@
     <main>
         <div class="features">
             <h1>Character</h1>
-            {%  for el in character %}
+            {% for el in character %}
                     <h3>{{el.title}}</h3>
                     <p>{{el.story}}</p>
                     <p4>{{el.age}}</p4>
+                    <a href="{% url 'delete_pers' el.id %}">delete</a>
+
             <img src="{{el.image.url}}" >
+
             
 
             {% endfor %}
