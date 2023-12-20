@@ -27,11 +27,7 @@
           <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
-              {% for article in news %}
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.full_text }}</p>
-    <p>{{ article.date }}</p>
-{% endfor %}
+
                      <button class="btn btn-success" type="submit">create character</button>
 
 
