@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login
 from .forms import CustomUserCreationForm
+from django.contrib.auth import logout as auth_logout
 
 
 
@@ -10,7 +11,6 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            # Можно добавить дополнительные действия после успешной регистрации
             return redirect('login')
     else:
         form = CustomUserCreationForm()
@@ -21,11 +21,19 @@ def login(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            # Можно добавить дополнительные действия после успешного входа
-            return redirect('home')  # Замените 'home' на URL вашей домашней страницы
+
+            return redirect('home')
     else:
         form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form': form})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('login')
+
+
+
+
 
 
 

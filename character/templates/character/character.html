@@ -16,7 +16,7 @@
                height: 150px;
                border-radius: 50px;
                border: 2px solid white;
-               transform: translate(-130px, -405px)
+               transform: translate(200px, -180px)
             }
 
             aside hr {
@@ -42,7 +42,7 @@
 
             h3.pers {
                 font-size: 50px;
-                transform: translate(250px,150px);
+                transform: translate(250px,0px);
                 font-family: "Viking Hell", sans-relief;
                 color: #F5F5DC;
             }
@@ -62,24 +62,21 @@
 
             p {
                 font-family: 'Saira', sans-serif;
-            }
-
-            p4.age {
-                font-size: 20px;
-                color: white;
-                transform: translateX(500px);
-
+                transform: translate(260px, 160px);
             }
 
             p.numbers {
                 font-family: "Viking Hell", sans-relief;
-                color: #F5F5DC
+                color: #F5F5DC;
+                transform: translate(248px, 154px);
+            }
+              p4.age{
+                transform: translate(100px, 160px);
             }
 
-            button.btn.btn-danger {
-                transform-translateX(-400px)
+            .btn.btn-danger {
+                transform: translate(420px, -180px);
             }
-
 
 
             </style>
@@ -90,9 +87,10 @@
         <ul>
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
-            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> •  Chat</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li>
             <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Add character</button></li></a>
+                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • news</li></a>
+
         </ul>
     </aside>
     <main>

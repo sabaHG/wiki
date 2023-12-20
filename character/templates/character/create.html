@@ -16,9 +16,8 @@
         <ul>
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> gallery</li>
-            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> chat</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> character</li>
-            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> add character</button></li></a>
+                <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> add character</button></li></a>
         </ul>
     </aside>
     <main>
@@ -28,8 +27,13 @@
           <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
+              {% for article in news %}
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.full_text }}</p>
+    <p>{{ article.date }}</p>
+{% endfor %}
                      <button class="btn btn-success" type="submit">create character</button>
-          </form>
+
 
 
 

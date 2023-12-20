@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>news</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+    <link rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+</head>
+<body>
+    <aside>
+        <style>
+            </style>
+        <img class="icon" src="https://sun9-77.userapi.com/impg/PEh5iOf1H8k0e9Co06aQmlRzaNp88EAwPhYZvA/SPiuOm8Z6SY.jpg?size=1280x918&quality=96&sign=15cc9e82ef6e529b8b2cc32c8c42837e&c_uniq_tag=A23SjHkSK_4JhxK1llBnJsyhsZrQ6luShW31nhtGXeU&type=album" alt="logo">
+        <span class="logo">Vinland Saga</span>
+        <hr>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li>
+            <a href="{% url 'add_news' %}"><li> <i class="btn base-svgs"></i>  • add news</li></a>
+
+        </ul>
+    </aside>
+    <main>
+        <div class="features">
+            <h1>news</h1>
+           {% for el in news %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </main>
+
+</body>
+</html>

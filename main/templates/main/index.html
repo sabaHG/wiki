@@ -53,12 +53,14 @@
         <ul>
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
-            <a href="{% url 'chat_home' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Chat</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Characters</li>
+                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • news</li></a>
         </ul>
     </aside>
 
     <main>
+
+
         <div class="features">
             <h1>Welcome to Vinland!</h1>
             <hr class="line">
@@ -69,7 +71,11 @@ Vinland Saga is not just a story; it's an epic full of thrilling adventures and 
 Let's open the doors to the past together, where the secrets of great warriors are hidden, and where every page of their fate is filled with courage and determination. Join the community of Vinland Saga fans – a place where passion for history meets the magic of Viking adventures.
 
 Welcome to Vinland, where every fan becomes part of the legend!</p>
-             <button class="btn btn-warning">More</button>
+             <a href="{% url 'register' %}" class="btn btn-success">Registration</a>
+            <a href="{% url 'login' %}" class="btn btn-success">login</a>
+            <a href="{% url 'logout' %}" class="btn btn-success">logout</a>
+
+
         </div>
     </main>
 
