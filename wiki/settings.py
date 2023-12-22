@@ -14,12 +14,13 @@ SECRET_KEY = 'django-insecure-0^j=+rl^yet((9!vfh2b91!%(m_@1&*hpj(m-d=%qdk7ik&p1b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'registration.apps.RegistrationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -30,9 +31,7 @@ INSTALLED_APPS = [
     'chat',
     'character',
     'gallery',
-    'registration',
     'news',
-
 ]
 
 MIDDLEWARE = [
@@ -50,7 +49,7 @@ ROOT_URLCONF = 'wiki.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -112,14 +111,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+
+LOGIN_REDIRECT_URL = "home"
+LOGIN_URL = "account:login"
+LOGOUT_URL = "account:logout"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
-
-AUTH_USER_MODEL = 'registration.CustomUser'

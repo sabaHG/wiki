@@ -13,22 +13,24 @@
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'account:logout' %}">Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'account:login' %}">Login</a></li>
+                    <li><a href="{% url 'account:register' %}">Register</a></li>
                 {% endif %}
             </ul>
         </nav>
     </header>
 
-    <main>
+   <main>
     <h2>Login</h2>
-    <form method="post" action="{% url 'login' %}">
+    <form method="post" action="{% url 'account:login' %}">
         {% csrf_token %}
+        <input type="hidden" name="next" value="/" /> <!-- Устанавливаем перенаправление на главную страницу -->
         {{ form.as_p }}
         <button type="submit">Login</button>
-    </form>    </main>
+    </form>
+</main>
 
     <footer>
         <!-- Здесь вы можете добавить информацию о футере, например, ссылки на социальные сети, копирайт и т. д. -->

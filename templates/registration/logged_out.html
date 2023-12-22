@@ -54,30 +54,23 @@
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Characters</li>
-                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • news</li></a>
+                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • News</li></a>
         </ul>
     </aside>
 
     <main>
-
-
         <div class="features">
-            <h1>Welcome to Vinland!</h1>
-            <hr class="line">
-            <p> Greetings, traveler, to the wiki dedicated to one of the greatest sagas – Vinland Saga. Here, you'll discover endless Viking fields, snow-covered Scandinavian forests, and gripping battles that will leave a mark on history.
-
-Vinland Saga is not just a story; it's an epic full of thrilling adventures and the destinies of characters. On this wiki, you can delve into the heroes, historical facts, and Viking culture that compose the essence of this captivating world.
-
-Let's open the doors to the past together, where the secrets of great warriors are hidden, and where every page of their fate is filled with courage and determination. Join the community of Vinland Saga fans – a place where passion for history meets the magic of Viking adventures.
-
-Welcome to Vinland, where every fan becomes part of the legend!</p>
-             <a href="{% url 'register' %}" class="btn btn-success">Registration</a>
-            <a href="{% url 'login' %}" class="btn btn-success">login</a>
-            <a href="{% url 'logout' %}" class="btn btn-success">logout</a>
-
-
+            <h1>Logged out</h1>
+            <p>You have been succefully logged out!</p>
         </div>
     </main>
+
+<script>
+    // Выполнить редирект на главную страницу спустя 2 секунды (или любое другое время)
+    setTimeout(function() {
+        window.location.href = "{% url 'home' %}";
+    }, 2000);  // 2000 миллисекунды (2 секунды)
+</script>
 
 </body>
 </html>

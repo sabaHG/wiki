@@ -3,7 +3,7 @@ from django.db import models
 class Artiles(models.Model):
     title = models.CharField('news name', max_length=50)
     full_text = models.TextField('article')
-    date = models.DateTimeField('date time')
+    date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

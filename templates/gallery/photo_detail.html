@@ -58,20 +58,35 @@
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>  • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Gallery</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li><a></a>
-                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • news</li></a>
+                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • News</li></a>
 
         </ul>
     </aside>
     <main>
         <div class="features">
-            <h1 class="gallery">Gallery</h1>
+            <h1 class="gallery">Post</h1>
             <hr class="line">
-             <a href="{% url 'add' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Add photo</button></li></a>
-        </div>
-        {%  for el in gallery %}
-        <img src="{{el.image.url}}" >
-            {% endfor %}
+            <h3>{{photo.name}}</h3>
+            <img src="{{photo.image.url}}">
+              <div style="margin-top: 20px;">
+    <h4>Comments</h4>
+    {% if request.user.is_authenticated %}
+      <form method="post" action="{% url 'add_comment' slug=photo.slug %}">
+        {% csrf_token %}
+        {{ form.text }}
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+    {% else %}
+      <p><a href="{% url 'account:login' %}">Log in</a> to add comments.</p>
+    {% endif %}
 
+    {% for comment in photo.comment_set.all %}
+      <div style="border: 1px solid #ddd; padding: 10px; margin-top: 10px;">
+        <p style="color: #777; font-size: 12px;">- {{ comment.user.username }}</p>
+        <p>{{ comment.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
     </main>
 
 </body>

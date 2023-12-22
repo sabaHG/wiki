@@ -26,20 +26,18 @@
     </aside>
     <main>
     <div class="features">
-        <h1>add_news</h1>
+        <h2>Add News</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
-            {% for article in news %}
-                <h2>{{ article.title }}</h2>
-                <p>{{ article.full_text }}</p>
-                <p>{{ article.date }}</p>
-            {% endfor %}
-
+            <!-- Выводим форму, созданную на основе модели ArtilesForm -->
             {{ form.as_p }}
 
-            <br>
-            <button class="btn btn-success" type="submit">add news</button>
+            <button type="submit">Add</button>
         </form>
     </div>
 </main>

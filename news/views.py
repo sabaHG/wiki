@@ -16,14 +16,14 @@ def add_news(request):
         form = ArtilesForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('news')
+            return redirect('news_home')
         else:
 
             data = {
                 'form': form,
                 'error': 'Invalid form data. Please correct the errors below.',
             }
-            return render(request, 'news/news_home.html', data)
+            return render(request, 'news/add_news.html', data)
     else:
         form = ArtilesForm()
 

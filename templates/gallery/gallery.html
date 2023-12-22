@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gallery</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+    <link rel="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+</head>
+<body>
+<style>
+
+    img.other {
+        width: 80px;
+        height: 80px;
+        border-radius: 80px;
+        border: 2px solid white;
+        transform: translateX(-250px)
+    }
+
+    img {
+        width: 320px;
+        height: 320px;
+        margin-left: 250px;
+    }
+
+
+
+    aside hr {
+    border: 2px solid #F5F5DC;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+
+    body {
+       background-color: #F5F5DC;
+    }
+    h1.gallery {
+        transform: translateY(-50px)
+    }
+
+     hr.line {
+                width: 50%;
+                border-width: 2px;
+                border-color: white;
+                margin-left: 25%;
+                transform: translate(250px,-20px)
+            }
+
+</style>
+    <aside>
+        <img class="other" src="https://sun9-77.userapi.com/impg/PEh5iOf1H8k0e9Co06aQmlRzaNp88EAwPhYZvA/SPiuOm8Z6SY.jpg?size=1280x918&quality=96&sign=15cc9e82ef6e529b8b2cc32c8c42837e&c_uniq_tag=A23SjHkSK_4JhxK1llBnJsyhsZrQ6luShW31nhtGXeU&type=album" alt="logo">
+        <span class="logo">Vinland Saga</span>
+        <hr>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i>  • Main</li>
+            <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i> • Gallery</li>
+            <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li><a></a>
+                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • News</li></a>
+
+        </ul>
+    </aside>
+    <main>
+        <div class="features">
+            <h1 class="gallery">Gallery</h1>
+            <hr class="line">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'add' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Add photo</button></li></a>
+            {% else %}
+                <a href="{% url 'account:login' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Login to add</button></li></a>
+            {% endif %}
+        </div>
+        {% if gallery %}
+            {%  for el in gallery %}
+            <a href="{% url 'detail' slug=el.slug %}"><img src="{{el.image.url}}"></a>
+            {% endfor %}
+        {% else %}}
+        <h3>There's nothing</h3>
+        {% endif %}
+    </main>
+
+</body>
+</html>

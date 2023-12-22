@@ -1,13 +1,16 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Pers
 from .forms import PersForm
 from django.http import HttpResponseRedirect, HttpResponseBadRequest
 
-def character(request):
-    character = Pers.objects.all()
-    print(character)
-    return render(request, 'character/character.html',{"character":character})
 
+def character(request):
+    characters = Pers.objects.all()
+    return render(request, 'character/character.html', {"characters": characters})
+
+
+@login_required
 def create(request):
     error = ''
     if request.method == 'POST':
@@ -32,7 +35,7 @@ def create(request):
 
     return render(request, 'character/create.html', data)
 
-
+@login_required
 def deletePers(request, id):
     try:
         character = Pers.objects.get(id=id)

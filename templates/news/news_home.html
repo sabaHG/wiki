@@ -20,13 +20,17 @@
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li>
-            <a href="{% url 'add_news' %}"><li> <i class="btn base-svgs"></i>  • add news</li></a>
-
         </ul>
     </aside>
     <main>
         <div class="features">
-            <h1>news</h1>
+            {% if request.user.is_authenticated %}
+        <a href="{% url 'add_news' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Add news</button></li></a>
+            {% else %}
+        <a href="{% url 'account:login' %}"><li><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Login to add</button></li></a>
+    {% endif %}
+</div>
+            <h1>News</h1>
            {% for el in news %}
             <div class="alert alert-warning">
                 <h3>{{ el.title }}</h3>

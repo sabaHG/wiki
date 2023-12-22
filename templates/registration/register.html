@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Django Site{% endblock %}</title>
-
 </head>
 <body>
 
@@ -13,10 +12,10 @@
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'account:logout' %}">Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'account:login' %}">Login</a></li>
+                    <li><a href="{% url 'account:register' %}">Register</a></li>
                 {% endif %}
             </ul>
         </nav>
@@ -24,7 +23,7 @@
 
     <main>
     <h2>Register</h2>
-    <form method="post" action="{% url 'register' %}">
+    <form method="post" action="{% url 'account:register' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Register</button>

@@ -88,27 +88,40 @@
             <a href="{% url 'home' %}"><li> <i class="fa-solid fa-house"></i> • Main</li>
             <a href="{% url 'gallery' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Gallery</li>
             <a href="{% url 'character' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • Characters</li>
-            <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Add character</button></li></a>
-                <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • news</li></a>
+            <a href="{% url 'news_home' %}"><li> <i class="fa-solid fa-earth-americas"></i>  • News</li></a>
 
         </ul>
     </aside>
-    <main>
-        <div class="features">
-            <h1 class="ass">Characters</h1>
-            <hr class="line">
-            {%  for el in character %}
-                    <h3 class="pers">{{el.title}}</h3>
-                    <p clas="plot">{{el.story}}</p>
-                    <p4 class="age"><p class="numbers">Age:</p>{{el.age}}</p4>
-                    <a href="{% url 'delete_pers' el.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
-            <img class="anime" src="{{el.image.url}}" >
+        <main>
 
+            </div>
+            <div class="features">
+                   {% if request.user.is_authenticated %}
+                <a href="{% url 'create' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Add character</button></li></a>
+                {% else %}
+                <a href="{% url 'account:login' %}"><li><button class="btn btn-info"><i class="fas fa-plus-cercle"></i> Login to add</button></li></a>
+                {% endif %}
+                        <h1 class="ass">Characters</h1>
+                <hr class="line">
 
-            {% endfor %}
-        </div>
+            {% if characters %}
+                {% for character in characters %}
+                    <div class="character-item">
+                        <h3 class="pers">{{ character.title }}</h3>
+                        <p class="plot">{{ character.story }}</p>
+                        <p class="age"><span class="numbers">Age:</span> {{ character.age }}</p>
+                        <!-- Заметка: Замени этот URL на соответствующий URL для удаления персонажа, если у тебя есть такой механизм -->
+                        <a href="{% url 'delete_pers' character.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        <img class="anime" src="{{ character.image.url }}" alt="{{ character.title }}">
+                    </div>
+                    <hr class="separator">
+                {% endfor %}
+            {% else %}
+                <p>No characters available.</p>
+            {% endif %}
 
-    </main>
+            </div>
+        </main>
 
 </body>
 </html>
